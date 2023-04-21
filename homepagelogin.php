@@ -13,7 +13,7 @@
         </div>
 	    <ul>
 	     <li><a href="login.php">Student Login</a></li>
-		 <li><a href="ADVISORLOGIN.php">Advisors login</a></li>
+		 <li><a href="advisor_login.php">Advisors login</a></li>
 	    </ul>
 	 </div>
     </nav>	

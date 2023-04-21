@@ -43,7 +43,7 @@
         <ul>
           <li><a href="#">join us</a></li>
           <li><a href="#">students</a></li>
-          <li><a href="advisee.html">staff</a></li>
+          <li><a href="#">staff</a></li>
           <li><a href="#">procurement</a></li>
           <li><a href="#">careers </a></li>
           <li>donate</li>
@@ -58,7 +58,7 @@
         <nav >
           <div class="nav-links">
             <ul>
-              <li><a href="login.html">home</a></li>
+              <li><a href="homepagelogin.php">home</a></li>
               <li><a href="#">about must</a></li>
               <li><a href="#">academic</a></li>
               <li><a href="#">programs</a></li>
@@ -113,7 +113,8 @@
             
           </ul> 
         </div>
-        <button><a href="logout.php">log out</a></button>
+        <div class="btn"><button onclick="location.href='logout.php'">logout</button></div>
+        
       </section>
       <script src="general4.js"></script>
     

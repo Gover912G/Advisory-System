@@ -1,3 +1,34 @@
+<?php
+  include ('config.php');
+	session_start();
+
+  $e = $_SESSION['email'];
+
+	$query = "SELECT * FROM advisor  WHERE email = '$e'";
+	$result = mysqli_query($con , $query);
+	while($row=mysqli_fetch_object($result)){
+		$name = $row -> fullname;
+	}
+  if(isset($_POST['submit'])){
+    $title = mysqli_real_escape_string($con,$_POST['title']);
+    $meeting_link = mysqli_real_escape_string($con,$_POST['meeting_link']);
+    $daytime = mysqli_real_escape_string($con,$_POST['daytime']);
+    $request_from = mysqli_real_escape_string($con,$_POST['request_from']);
+
+    $query = "INSERT INTO group_meeting(title,meeting_link,daytime,request_from)
+    VALUES('$title','$meeting_link','$daytime','$request_from')";
+    
+    $result = mysqli_query($con,$query);
+
+    if($result==true){
+      header("Location:../login.php");
+    }
+    
+    
+
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,12 +142,16 @@
 			<input type="text" id="title" name="title">
 			
 			<label for="link">Meeting link</label>
-			<input type="text" id="title" name="link">
+			<input type="text"  name="meeting_link">
 			
 			<label for="date">Date</label>
-			<input type="datetime-local" id="date" name="date">
+			<input type="datetime-local" id="date" name="daytime">
+
 			
-			<button type="submit" id="submit">Submit</button>
+            <input type="hidden" name="request_from" value = "<?php echo $name; ?>">
+           
+			
+			<button type="submit" name="submit">Submit</button>
 		</form>
 	</div>
 	

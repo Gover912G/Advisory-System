@@ -211,3 +211,10 @@ up-coming ul li a:hover
 {
   color: rgb(127, 157, 255);
 }
+section .btn
+{
+  padding: 10px;
+  margin: 5px;
+  color: #ec840c;
+  background-color: aqua;
+}
