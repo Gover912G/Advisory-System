@@ -13,15 +13,15 @@
     $title = mysqli_real_escape_string($con,$_POST['title']);
     $meeting_link = mysqli_real_escape_string($con,$_POST['meeting_link']);
     $daytime = mysqli_real_escape_string($con,$_POST['daytime']);
-    $request_from = mysqli_real_escape_string($con,$_POST['request_from']);
+    $scheduled_by = mysqli_real_escape_string($con,$_POST['scheduled_by']);
 
-    $query = "INSERT INTO group_meeting(title,meeting_link,daytime,request_from)
-    VALUES('$title','$meeting_link','$daytime','$request_from')";
+    $query = "INSERT INTO group_meeting(title,meeting_link,daytime,scheduled_by)
+    VALUES('$title','$meeting_link','$daytime','$scheduled_by')";
     
     $result = mysqli_query($con,$query);
 
     if($result==true){
-      header("Location:../login.php");
+      header("Location:advisor_login.php");
     }
     
     
@@ -32,7 +32,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin Page</title>
+	<title><?php echo $name; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		body {
@@ -137,7 +137,7 @@
 	<div id="new-event">
 		<h2>Schedule a New Meeting</h2>
 		
-		<form>
+		<form method= "post">
 			<label for="title">Title</label>
 			<input type="text" id="title" name="title">
 			
@@ -148,7 +148,7 @@
 			<input type="datetime-local" id="date" name="daytime">
 
 			
-            <input type="hidden" name="request_from" value = "<?php echo $name; ?>">
+            <input type="hidden" name="scheduled_by" value = "<?php echo $name; ?>">
            
 			
 			<button type="submit" name="submit">Submit</button>

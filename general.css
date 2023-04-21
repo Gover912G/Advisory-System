@@ -165,7 +165,8 @@ form .btn #btn
 .up-coming p 
 {
   width: 100%;
-  height: 100px;
+  height: auto;
+  margin: 10px;
   padding-top: 20px;
   background-color: rgb(230, 137, 23);
   color: black;

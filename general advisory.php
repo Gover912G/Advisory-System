@@ -106,10 +106,22 @@
         <div class="up-coming">
           <p>up coming events</p>
           <ul id="upComing">
+            <li><a href="#"> <?php
+         $getpost = mysqli_query($con, "SELECT * FROM group_meeting");
+         while($row1=mysqli_fetch_array($getpost)){
+           ?>
+
+          <p>Title: <?php echo $row1['title']; echo "  ";echo $row1['daytime'];?></p>
+          <p>meeting link:<a> <?php echo $row1['meeting_link']; ?></a></p>
+          <p>Day and date: <?php echo $row1['daytime']; ?></p>
+          <p>scheduled by: <?php echo $row1['scheduled_by']; ?></p>
+          <hr></hr>
+         <?php
+         }
+        ?></a></li>
+            <!--<li><a href="#">Computer science class meeting <br> date 25-04-2023 time 1600h</a></li>
             <li><a href="#">Computer science course advisory <br> date 25-04-2023 time 1600h</a></li>
-            <li><a href="#">Computer science class meeting <br> date 25-04-2023 time 1600h</a></li>
-            <li><a href="#">Computer science course advisory <br> date 25-04-2023 time 1600h</a></li>
-           
+        -->
             
           </ul> 
         </div>
